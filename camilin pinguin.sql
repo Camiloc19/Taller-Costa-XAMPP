@@ -55,7 +55,7 @@ INSERT INTO `atencion_vehiculo` (`idAtencion`, `id_Vehiculo_fk`, `id_Usuario_fk`
 
 CREATE TABLE `categoria_producto` (
   `idCategoria` int(11) NOT NULL,
-  `Nombre` varchar(100) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
   `descripcion` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -126,7 +126,7 @@ INSERT INTO `detalle_orden` (`idDetalleServicio`, `id_Orden_fk`, `id_TipoServici
 
 CREATE TABLE `estado_orden` (
   `idEstado` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL
+  `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -168,7 +168,7 @@ INSERT INTO `factura` (`idFactura`, `id_Orden_fk`, `id_MetodoPago_fk`, `numero_f
 
 CREATE TABLE `marca_vehiculo` (
   `idMarca` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL
+  `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -190,7 +190,7 @@ INSERT INTO `marca_vehiculo` (`idMarca`, `Nombre`) VALUES
 
 CREATE TABLE `metodo_pago` (
   `idMetodoPago` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL
+  `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -295,7 +295,7 @@ INSERT INTO `producto_proveedor` (`idProductoProveedor`, `id_Producto_fk`, `id_P
 
 CREATE TABLE `proveedores` (
   `idProveedor` int(11) NOT NULL,
-  `Nombre` varchar(100) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
   `nit` varchar(20) NOT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `direccion` varchar(200) DEFAULT NULL
@@ -320,7 +320,7 @@ INSERT INTO `proveedores` (`idProveedor`, `Nombre`, `nit`, `telefono`, `direccio
 
 CREATE TABLE `roles` (
   `idRol` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(500) NOT NULL,
   `permisos` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -343,7 +343,7 @@ INSERT INTO `roles` (`idRol`, `Nombre`, `descripcion`, `permisos`) VALUES
 
 CREATE TABLE `tipo_movimiento` (
   `idTipoMovimiento` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -365,7 +365,7 @@ INSERT INTO `tipo_movimiento` (`idTipoMovimiento`, `Nombre`, `descripcion`) VALU
 
 CREATE TABLE `tipo_servicio` (
   `idTipoServicio` int(11) NOT NULL,
-  `Nombre` varchar(100) NOT NULL
+  `nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -557,7 +557,7 @@ ALTER TABLE `usuarios`
 -- Indices de la tabla `vehiculos`
 --
 ALTER TABLE `vehiculos`
-  ADD PRIMARY KEY (`IDvehiculos`),
+  ADD PRIMARY KEY (`idVehiculos`),
   ADD KEY `fk_vehiculo_usuario` (`id_Usuario_fk`),
   ADD KEY `fk_vehiculo_marca` (`id_Marca_fk`);
 
