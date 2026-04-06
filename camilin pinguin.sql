@@ -208,7 +208,7 @@ INSERT INTO `metodo_pago` (`idMetodoPago`, `Nombre`) VALUES
 --
 
 CREATE TABLE `orden_servicio` (
-  `Id_orden` int(11) NOT NULL,
+  `id_Orden` int(11) NOT NULL,
   `id_Vehiculo_fk` int(11) NOT NULL,
   `id_Usuario_fk` int(11) NOT NULL,
   `id_Estado_fk` int(11) NOT NULL,
@@ -414,7 +414,7 @@ INSERT INTO `usuarios` (`idUsuario`, `nombre`, `apellido`, `contraseña`, `corre
 --
 
 CREATE TABLE `vehiculos` (
-  `IDvehiculos` int(11) NOT NULL,
+  `idVehiculos` int(11) NOT NULL,
   `id_Usuario_fk` int(11) NOT NULL,
   `id_Marca_fk` int(11) NOT NULL,
   `placa` varchar(15) NOT NULL,
