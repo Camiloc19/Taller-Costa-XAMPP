@@ -1,12 +1,11 @@
-
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-04-2026 a las 18:30:04
+-- Tiempo de generación: 20-05-2026 a las 17:04:50
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `taller el costa`
+-- Base de datos: `taller_el_costa`
 --
 
 -- --------------------------------------------------------
@@ -64,7 +63,7 @@ CREATE TABLE `categoria_producto` (
 -- Volcado de datos para la tabla `categoria_producto`
 --
 
-INSERT INTO `categoria_producto` (`idCategoria`, `Nombre`, `descripcion`) VALUES
+INSERT INTO `categoria_producto` (`idCategoria`, `nombre`, `descripcion`) VALUES
 (1, 'Filtros', 'Retiene impurezas en los sistemas del vehiculo'),
 (2, 'Lujos', 'Mejoran la funcionalidad, comodidad y estetica del vehiculo'),
 (3, 'Repuestos', 'Piezas para remplazar componentes dañados o gastados'),
@@ -134,7 +133,7 @@ CREATE TABLE `estado_orden` (
 -- Volcado de datos para la tabla `estado_orden`
 --
 
-INSERT INTO `estado_orden` (`idEstado`, `Nombre`) VALUES
+INSERT INTO `estado_orden` (`idEstado`, `nombre`) VALUES
 (1, 'En proceso'),
 (2, 'Finalizado');
 
@@ -176,7 +175,7 @@ CREATE TABLE `marca_vehiculo` (
 -- Volcado de datos para la tabla `marca_vehiculo`
 --
 
-INSERT INTO `marca_vehiculo` (`idMarca`, `Nombre`) VALUES
+INSERT INTO `marca_vehiculo` (`idMarca`, `nombre`) VALUES
 (1, 'Chevrolet'),
 (2, 'Mazda'),
 (3, 'Renault'),
@@ -198,7 +197,7 @@ CREATE TABLE `metodo_pago` (
 -- Volcado de datos para la tabla `metodo_pago`
 --
 
-INSERT INTO `metodo_pago` (`idMetodoPago`, `Nombre`) VALUES
+INSERT INTO `metodo_pago` (`idMetodoPago`, `nombre`) VALUES
 (1, 'Efectivo'),
 (2, 'Nequi');
 
@@ -209,7 +208,7 @@ INSERT INTO `metodo_pago` (`idMetodoPago`, `Nombre`) VALUES
 --
 
 CREATE TABLE `orden_servicio` (
-  `id_Orden` int(11) NOT NULL,
+  `Id_orden` int(11) NOT NULL,
   `id_Vehiculo_fk` int(11) NOT NULL,
   `id_Usuario_fk` int(11) NOT NULL,
   `id_Estado_fk` int(11) NOT NULL,
@@ -306,7 +305,7 @@ CREATE TABLE `proveedores` (
 -- Volcado de datos para la tabla `proveedores`
 --
 
-INSERT INTO `proveedores` (`idProveedor`, `Nombre`, `nit`, `telefono`, `direccion`) VALUES
+INSERT INTO `proveedores` (`idProveedor`, `nombre`, `nit`, `telefono`, `direccion`) VALUES
 (1, 'Manuel Puertas (LumenX)', '900123456-7', '3104567890', 'Calle 45 #12-34, Bogotá'),
 (2, 'Camilo Cruz (Power Light LED)', '901234567-8', '3115678901', 'Cra 15 #98-20, Medellín'),
 (3, 'Mariana Zarate (Importadora Vanegas)', '902345678-9', '3126789012', 'Av 30 #45-10, Cali'),
@@ -330,7 +329,7 @@ CREATE TABLE `roles` (
 -- Volcado de datos para la tabla `roles`
 --
 
-INSERT INTO `roles` (`idRol`, `Nombre`, `descripcion`, `permisos`) VALUES
+INSERT INTO `roles` (`idRol`, `nombre`, `descripcion`, `permisos`) VALUES
 (1, 'Super_administrador', 'Es el dueño del sistema y tiene control absoluto sobre todas las configuraciones y operaciones.', 'Acceso total e ilimitado al sistema; puede crear, modificar y eliminar usuarios, roles, productos y servicios, configurar el sistema, ver y generar todos los reportes, supervisar órdenes de servicio y realizar cualquier cambio sin restricciones.'),
 (2, 'Administrador', 'Tiene control total del sistema. Gestionar usuarios, gestionar roles, administrar productos, ver reportes, modificar y eliminar registros.', 'Acceso casi total; puede crear, editar y eliminar usuarios, productos y órdenes de servicio y generar reportes.'),
 (3, 'Cliente', 'Solo puede realizar compra y mantenimiento.', 'No tiene acceso alguno al programa.'),
@@ -352,7 +351,7 @@ CREATE TABLE `tipo_movimiento` (
 -- Volcado de datos para la tabla `tipo_movimiento`
 --
 
-INSERT INTO `tipo_movimiento` (`idTipoMovimiento`, `Nombre`, `descripcion`) VALUES
+INSERT INTO `tipo_movimiento` (`idTipoMovimiento`, `nombre`, `descripcion`) VALUES
 (1, 'Entrada', 'Ingreso de productos al inventario'),
 (2, 'Salida', 'Salida de productos por venta'),
 (3, 'Devolucion', 'Producto devuelto por cliente'),
@@ -373,7 +372,7 @@ CREATE TABLE `tipo_servicio` (
 -- Volcado de datos para la tabla `tipo_servicio`
 --
 
-INSERT INTO `tipo_servicio` (`idTipoServicio`, `Nombre`) VALUES
+INSERT INTO `tipo_servicio` (`idTipoServicio`, `nombre`) VALUES
 (1, 'Reparacion'),
 (2, 'Venta');
 
@@ -415,7 +414,7 @@ INSERT INTO `usuarios` (`idUsuario`, `nombre`, `apellido`, `contraseña`, `corre
 --
 
 CREATE TABLE `vehiculos` (
-  `idVehiculos` int(11) NOT NULL,
+  `IDvehiculos` int(11) NOT NULL,
   `id_Usuario_fk` int(11) NOT NULL,
   `id_Marca_fk` int(11) NOT NULL,
   `placa` varchar(15) NOT NULL,
@@ -558,7 +557,7 @@ ALTER TABLE `usuarios`
 -- Indices de la tabla `vehiculos`
 --
 ALTER TABLE `vehiculos`
-  ADD PRIMARY KEY (`idVehiculos`),
+  ADD PRIMARY KEY (`IDvehiculos`),
   ADD KEY `fk_vehiculo_usuario` (`id_Usuario_fk`),
   ADD KEY `fk_vehiculo_marca` (`id_Marca_fk`);
 
